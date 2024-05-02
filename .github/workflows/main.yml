@@ -7,7 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build and push the images
-        run:
+        run: |
+          
           docker login --username sagnikb5223 --password ${{ secrets.GH_PAT }} ghcr.io
           docker build . -t ghcr.io/nwom/joblist-ghcr:latest
           docker push ghcr.io/nwom/joblist-ghcr:latest
