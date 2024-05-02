@@ -22,3 +22,13 @@ To configure the application:
 
 1. Create an `.env` file based on the provided `.env.example` and fill in the MongoDB credentials.
 2. Update the `application.properties` file with the appropriate MongoDB URI and database name.
+
+
+## Usage:
+
+Get started with the application:
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Build the application using Maven.
+4. Run the application and access the Swagger UI documentation at `http://localhost:8080/swagger-ui.html` to explore the API endpoints.
