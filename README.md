@@ -32,3 +32,11 @@ Get started with the application:
 2. Navigate to the project directory.
 3. Build the application using Maven.
 4. Run the application and access the Swagger UI documentation at `http://localhost:8080/swagger-ui.html` to explore the API endpoints.
+
+## Deployment:
+
+Deploy the application using Docker:
+
+1. Build the Docker image.
+2. Run the Docker container.
+3. Access the application at `http://localhost:8080`.
