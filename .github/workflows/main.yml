@@ -9,5 +9,5 @@ jobs:
       - name: Build and push the images
         run:
           docker login --username sagnikb5223 --password ${{ secrets.GH_PAT }} ghcr.io
-          docker build . --t ghcr.io/nwom/joblist-ghcr:latest
+          docker build . -t ghcr.io/nwom/joblist-ghcr:latest
           docker push ghcr.io/nwom/joblist-ghcr:latest
