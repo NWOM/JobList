@@ -1,10 +1,13 @@
-FROM openjdk:17
+FROM openjdk:17-slim
 
-ARG JAR_FILE=target/*.jar
+# Set the working directory inside the container
+WORKDIR /app
 
-COPY ${JAR_FILE}  /joblisting.jar
+# Copy only the executable JAR file into the image
+COPY target/joblisting-0.0.1-SNAPSHOT.jar /app/joblisting.jar
 
-ENTRYPOINT ["java" , "-jar" , "/joblisting.jar"]
-
+# Expose the port the application listens on
 EXPOSE 8080
 
+# Define the command to run the application
+ENTRYPOINT ["java", "-jar", "/app/joblisting.jar"]
