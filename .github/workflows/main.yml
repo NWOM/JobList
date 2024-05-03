@@ -1,30 +1,19 @@
 name: Docker Image CI for GHCR
-
 on:
-  push:
-    branches:
-      - main  # Trigger the workflow only on pushes to the 'main' branch
-
+  push
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_PAT }}
+      - uses: actions/checkout@v3
+      - name: Build and push the images
+        run: |
+          
+          docker login --username sagnikb5223 --password ${{ secrets.GH_PAT }} ghcr.io
+          docker build . -t ghcr.io/nwom/joblist-ghcr:latest
+          docker push ghcr.io/nwom/joblist-ghcr:latest
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build and push the Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/setup-buildx-action@v1
         with:
-          push: true
-          tags: ghcr.io/nwom/joblist-ghcr:latest
+          version: v0.7.0
